@@ -1,0 +1,9 @@
+<p>guideslist works!</p>
+<h2>Available Guides</h2>
+
+<div *ngFor="let guide of guides" class="guide-card">
+  <h3>{{ guide.title }}</h3>
+  <p>{{ guide.description }}</p>
+  <button>View Details</button>
+</div>
+
