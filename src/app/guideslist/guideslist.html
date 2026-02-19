@@ -1,6 +1,16 @@
 <p>guideslist works!</p>
 <h2>Available Guides</h2>
 
+<div class="search-wrapper">
+  <div class="input-box">
+    <i class="uil uil-search"></i>
+    <input type="text" placeholder="Des endroits à visiter, des activités..." />
+    <button class="button">Recherche</button>
+  </div>
+</div>
+
+
+
 <div *ngFor="let guide of guides" class="guide-card">
   <h3>{{ guide.title }}</h3>
   <p>{{ guide.description }}</p>
