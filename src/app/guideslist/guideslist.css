@@ -5,6 +5,23 @@
   margin-top: 30px;
 }
 
+.backgroundimg {
+  width: 100%;
+  padding: 130px 0;
+  text-align: center;
+
+ 
+  background-image: url('https://www.my-french-house.com/assets/content/regions/37/photo/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+ 
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+
+  border-radius: 0 0 20px 20px; 
+}
 
 .input-box {
   position: relative;
@@ -50,3 +67,9 @@
 .input-box .button:active {
   transform: scale(0.97);
 }
+.heading { text-align: center;
+     font-size: 70px; 
+     margin-top: 20px;
+      font-weight: 600;
+       color: #333; 
+    }
