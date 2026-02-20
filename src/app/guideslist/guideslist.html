@@ -1,23 +1,65 @@
-<p>guideslist works!</p>
-<h2>Available Guides</h2>
-<div class ="backgroundimg">
 
-<h2 class ="heading">Quelle est votre destination ?</h2>
 
-<div class="search-wrapper">
-  <div class="input-box">
-    <i class="uil uil-search"></i>
-    <input type="text" placeholder="Des endroits à visiter, des activités..." />
-    <button class="button">Recherche</button>
+
+<section class="hero-section">
+
+ 
+  <img src="https://i.postimg.cc/d0yHzBQ4/shape-1.png" class="shape shape-1">
+  <img src="https://i.postimg.cc/TPg0k3QS/shape-2.png" class="shape shape-2">
+  <img src="https://i.postimg.cc/RVYT4HDR/shape-3.png" class="shape shape-3">
+
+  <div class="hero-container">
+
+    <div class="hero-content">
+      <p class="hero-subtitle">Explorez vos prochaines aventuresl</p>
+      <h1 class="hero-title">Trouvez votre guide</h1>
+      <p class="hero-text">
+        Découvrez des itinéraires détaillés, explorez les activités jour par jour et planifiez votre voyage en toute simplicité.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn-primary" (click) ="scrolltocities()">Voir les guides</button>
+        
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.postimg.cc/s2xKpCNP/hero-banner.png" class="hero-banner">
+    </div>
+
   </div>
-</div>
-</div>
+</section>
 
 
 
-<div *ngFor="let guide of guides" class="guide-card">
-  <h3>{{ guide.title }}</h3>
-  <p>{{ guide.description }}</p>
-  <button>View Details</button>
+<div class="backgroundimg">
+
+  <h2 class="heading">Quelle est votre destination ?</h2>
+
+  <div class="search-wrapper">
+    <div class="input-box">
+      <i class="uil uil-search"></i>
+      <input type="text" placeholder="Des endroits à visiter, des activités..." />
+      <button class="button">Recherche</button>
+    </div>
+  </div>
+
 </div>
+
+<section class="cities" id="citiesid">
+     <div class="card" *ngFor="let g of guides" (click)="selectGuide(g)">
+         <div class="card__img"> <img [src]="g.image" [alt]="g.landmark"> 
+           
+            <div class="card__overlay"> 
+                <h2>{{ g.city }}</h2>
+                 <p>{{ g.landmark }}</p>
+                 </div>
+                 </div> </div> </section>
+
+
+    
+ <div *ngIf="selectedGuide" class="guide-details"> <h2>{{ selectedGuide.city }} — {{ selectedGuide.landmark }}</h2> <p>{{ selectedGuide.description }}</p> <!-- Day navigation --> <div class="day-tabs"> <button *ngFor="let d of selectedGuide.days; let i = index" [class.active]="i === selectedDay" (click)="selectedDay = i"> Day {{ d.day }} </button> </div> <!-- Activities --> <ul> <li *ngFor="let act of selectedGuide.days[selectedDay].activities"> {{ act }} </li> </ul> </div>
+
+
+
 
