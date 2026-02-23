@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Available Guides</h1>
+
+  <button class="admin-btn" routerLink="/guides/create">+ Create Guide</button>
+
+  <div *ngIf="guides$ | async as guides; else loading">
+
+    <div *ngFor="let g of guides" class="guide-card" (click)="goToGuide(g.id)">
+      <h2>{{ g.title }}</h2>
+      <p>{{ g.description }}</p>
+      <p><strong>Days:</strong> {{ g.days }} • <strong>Season:</strong> {{ g.season }}</p>
+
+      <div class="admin-actions">
+        <button (click)="editGuide(g.id, $event)">Edit</button>
+        <button (click)="deleteGuide(g.id, $event)">Delete</button>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #loading>
+    Loading guides...
+  </ng-template>
+</div>

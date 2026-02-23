@@ -1,0 +1,35 @@
+<p style="color:red">TEMPLATE LOADED</p>
+
+<div class="container">
+
+  <h1>{{ guide?.title }}</h1>
+  <p>{{ guide?.description }}</p>
+  <p><strong>Days:</strong> {{ guide?.days }}</p>
+  <p><strong>Season:</strong> {{ guide?.season }}</p>
+
+  <button class="admin-btn"
+          *ngIf="guide?.id"
+          [routerLink]="['/activities/create', guide.id]">
+    + Add Activity
+  </button>
+
+  <h2>Activities</h2>
+
+  <div *ngIf="guide?.activities && guide.activities.length > 0; else noActivities">
+    <div *ngFor="let a of guide.activities" class="activity-card">
+      <h3>{{ a.visitorder }}. {{ a.title }}</h3>
+      <p>{{ a.description }}</p>
+      <p><strong>Category:</strong> {{ a.category }}</p>
+      <p><strong>Address:</strong> {{ a.address }}</p>
+      <p><strong>Hours:</strong> {{ a.openingHours }}</p>
+
+      <button (click)="editActivity(a.id)">Edit</button>
+      <button (click)="deleteActivity(a.id)">Delete</button>
+    </div>
+  </div>
+
+  <ng-template #noActivities>
+    <p>No activities yet. Add one!</p>
+  </ng-template>
+
+</div>

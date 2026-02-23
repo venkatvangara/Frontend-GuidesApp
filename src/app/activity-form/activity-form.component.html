@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>{{ isEdit ? 'Edit Activity' : 'Add Activity' }}</h1>
+
+  <form (ngSubmit)="save()">
+
+    <label>Title</label>
+    <input [(ngModel)]="activity.title" name="title" required>
+
+    <label>Description</label>
+    <textarea [(ngModel)]="activity.description" name="description" required></textarea>
+
+    <label>Day Number</label>
+    <input type="number" [(ngModel)]="activity.daynumber" name="daynumber" min="1" required>
+
+    <label>Category</label>
+    <input [(ngModel)]="activity.category" name="category" required>
+
+    <label>Address</label>
+    <input [(ngModel)]="activity.address" name="address" required>
+
+    <label>Opening Hours</label>
+    <input [(ngModel)]="activity.openingHours" name="openingHours">
+
+    <label>Visit Order</label>
+    <input type="number" [(ngModel)]="activity.visitorder" name="visitorder" min="1">
+
+    <button type="submit" class="save-btn">Save</button>
+  </form>
+</div>

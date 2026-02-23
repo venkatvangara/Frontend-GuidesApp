@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>{{ isEdit ? 'Edit Guide' : 'Create Guide' }}</h1>
+
+  <form (ngSubmit)="save()">
+
+    <label>Title</label>
+    <input [(ngModel)]="guide.title" name="title" required>
+
+    <label>Description</label>
+    <textarea [(ngModel)]="guide.description" name="description" required></textarea>
+
+    <label>Days</label>
+    <input type="number" [(ngModel)]="guide.days" name="days" min="1" required>
+
+    <label>Season</label>
+    <input [(ngModel)]="guide.season" name="season" required>
+
+    <button type="submit" class="save-btn">Save</button>
+  </form>
+</div>
